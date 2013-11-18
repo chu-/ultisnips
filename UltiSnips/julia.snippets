@@ -1,3 +1,10 @@
+#snippet try "Try / Except" b
+#try:
+#   ${1:pass}
+#except ${2:Exception}, ${3:e}:
+#   ${4:raise $3}
+#endsnippet
+
 snippet f "f(x,y)=x+y"
 ${1:f(* name *)}(${2:* args *}) = ${3:* body *}
 endsnippet
@@ -100,5 +107,11 @@ endsnippet
 snippet type "type"
 type ${1:TypeName}
   ${2:(Types)}
+end
+endsnippet
+snippet temp "temp"
+type ${1:TypeName}
+  ${2:(Types)}
+  ${0:(hehe)}
 end
 endsnippet
