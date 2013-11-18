@@ -81,3 +81,24 @@ endsnippet
 snippet broadcast "broadcast"
 broadcast(${1:+}, ${2:a}, ${3:A})
 endsnippet
+snippet macro "macro"
+macro ${1:(*name*)}(${2:(*args*)})
+  quote
+	${3:(*body*)}  
+  end
+end
+endsnippet
+snippet test "test"
+@test ${1:(*expr left*)} ${2:==} ${3:(*expr right*)}
+endsnippet
+snippet test "test_approx_equal"
+@test_approx_eq ${1:(*expr 1*)} ${2:(*expr 2*)}
+endsnippet
+snippet test "test_approx_equal_eps"
+@test_approx_eq_eps ${1:(*expr 1*)} ${2:(*expr 2*)} ${3:eps}
+endsnippet
+snippet type "type"
+type ${1:TypeName}
+  ${2:(Types)}
+end
+endsnippet
