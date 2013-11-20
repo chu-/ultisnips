@@ -1,0 +1,107 @@
+snippet program "program ... end program"
+program ${1:name}
+    implicit none
+    ${2:real} :: ${3:vars} 
+end program $1
+endsnippet
+snippet i "interface"
+interface
+  function ${1:name} (${2:args},${3:args}) result (${4:(*return value*)})
+    ${5:real}, intent(in) :: $2
+    ${6:real} :: $4
+  end function $1
+end interface
+endsnippet
+snippet f "function"
+function ${1:name}(${2:x},${3:y})
+  implicit none
+  ${4:real} :: $1
+  ${5:real}, intent(in) :: $2
+  ${6:(*body*)} 
+end function $1
+endsnippet
+snippet s "subroutine"
+subroutine ${1:funtion} (${2:args}) 
+  ${3:real} :: $2
+  ${4:body}
+end subroutine
+endsnippet
+snippet if "if then"
+if(${1:(*condition*)}) then
+    ${2:(*A*)}
+end if
+endsnippet
+snippet If "if then else end if"
+if(${1:(*condition*)}) then
+    ${2:(*A*)}
+else
+    ${3:(*B*)}
+end if
+endsnippet
+snippet IF "if then elseif then ...  end if"
+if (${1:(*condition*)}) then
+    ${2:(*A*)}
+elseif (${3:(*condition 2*)}) then
+    ${4:(*B*)}
+else
+    ${5:(*C*)}
+end if
+endsnippet
+
+snippet do "do enddo"
+do ${1:i} = ${2:0}, ${3:N}
+    ${4:(*body*)}
+end do
+endsnippet
+snippet dw "do while"
+do while ( ${1:(*condition*)} )
+  ${2:(*body*)}
+end do
+endsnippet
+snippet case " select case"
+select case(${1:c})
+case("${2:(*condition a*)}")
+    ${3:(*body*)}
+case default
+    ${4:(*body*)}
+end select
+endsnippet
+snippet use "use xxx, only: xx,xx"
+use ${1:module name}, only: ${2:method}
+endsnippet
+snippet imp "implicit none"
+implicit none
+endsnippet
+snippet write "print to screen"
+write(${1:6},*) "${2:Output is:}", ${3:x}
+endsnippet
+snippet write "print to screen"
+write(${1:*},*) "${2:Output is:}", ${3:x}
+endsnippet
+snippet read "read from input"
+read(${1:*},*) "${2:Input is:}", ${3:x}
+endsnippet
+snippet demo "simple example to find the roots"
+program ${1:quad}
+        implicit none
+        real :: a,b,c
+        real :: d
+        real :: root1,root2
+		read(*,*) a,b,c
+		write(*,*) 'a = ', a
+		write(*,*) 'b = ', b
+		write(*,*) 'c = ', c
+
+		d = b*b - 4.0*a*c
+
+		if (d >= 0.0 ) then
+		        d = sqrt(d)
+   	        root1=(-b +d )/(2.0*a)
+	        root2=(-b -d )/(2.0*a)
+	        write(*,*) 'Roots are ', root1, ' and ', root2
+		else
+            write(*,*) 'There is no real roots!'
+	        write(*,*) 'Discriminant = ', d
+		end if
+end program $1
+endsnippet
